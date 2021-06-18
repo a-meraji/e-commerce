@@ -11,20 +11,22 @@ import {
 
 
 const SideBar = () => {
-    const { toggleSideBar, sideBar } = useGlobalContext()
+    const { toggleSideBar, sideBar, setCategory } = useGlobalContext()
 
     return (
         <div className={sideBar ?'side_bar show_side_bar': "side_bar"}>
             <button className='side_btn' onClick={()=>toggleSideBar()}><FaTimes /></button>
             <ul className='side_ul font_lib'>
-                <li className='side_li'>
-                    <Link to='/'>Home</Link>
+                <li className='side_li' onClick={()=>toggleSideBar()}>
+                    <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                 </li>
-                <li className='side_li'>
+                <li className='side_li' onClick={()=>toggleSideBar()}>
                     <Link to='/about'>About</Link>
                 </li>
-                <li className='side_li'>
-                    <Link to='/contacts'>Contacts</Link>
+                <li className='side_li' onClick={()=>toggleSideBar()}>
+                <Link onClick={()=>setCategory('all')} to={`/products/all`}>
+                    Categories
+                </Link>
                 </li>
             </ul>
             <ul className='social_ul'>

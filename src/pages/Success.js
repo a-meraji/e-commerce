@@ -13,7 +13,7 @@ const Success = () => {
             </h1>
             <h3 className='f5'>you will receive your order untill next 5 days</h3>
             <div className='success-btn f6' >
-                <Link to='/'>
+                <Link to={process.env.PUBLIC_URL + '/'}>
                     Back to Home
                 </Link>
             </div>

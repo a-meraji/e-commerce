@@ -39,6 +39,8 @@ const Footer = () => {
                 <Link className='footer_links_a f2' to='/'>cookies</Link>
             </li>
         </ul>
+        
+        <a href='https://twitter.com/mamad_coder' className='font_lib mylink f2'>Programmed by Amin Meraji</a>
         <p className='copyright f1'>copyright <FaRegCopyright/> {new Date().getFullYear()} AllRights Reserved</p>
     </footer>
 }

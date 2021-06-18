@@ -45,7 +45,9 @@ const ProviderFunction = ({ children }) => {
             case"jeans":
             tmpPro = [...jeans]
             break
-            default:break
+            default:
+            tmpPro = [...jackets,...shirts,...t_shirts,...pants,...jeans]
+            break
         }
         const newPro = tmpPro.map((item) => {
             const {

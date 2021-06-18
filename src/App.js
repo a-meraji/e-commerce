@@ -14,7 +14,6 @@ import Error from './pages/Error'
 import ScrollTop from './components/ScrollTop'
 
 const  App = () =>{
-    console.log(process.env.PUBLIC_URL)
     return(
         <div id='wrapper'>
         <Router>
