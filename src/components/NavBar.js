@@ -17,7 +17,7 @@ const NavBar = () => {
     window.addEventListener('scroll', changeColor)
     return(
         <nav className={scrolled ? 'scrolled' : ''}>
-            <Link to='/'>
+            <Link to={process.env.PUBLIC_URL + '/'}>
                 <div className='logo f7'>
                     <h3>REVIGA</h3>
                 </div>
