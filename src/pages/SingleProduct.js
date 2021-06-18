@@ -10,7 +10,6 @@ const SingleProduct = () => {
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
         setLoading(true)
-        console.log(prod.current)
         const it = fetchPro(id)
         prod.current=it
         setPic(it.img[0])
@@ -44,6 +43,15 @@ const SingleProduct = () => {
             addItem(newItem)
         }
     }
+    const selectedClass = (e) => {
+        var btns= e.target.parentElement.getElementsByClassName('btnArr')
+        for(var i=0; i < btns.length; i++){
+            if (btns[i].classList.contains('selected')){
+                btns[i].classList.remove('selected')
+            }
+        }
+        e.target.classList.add('selected')
+    }
   
     if(loading === false ){
         const{title,
@@ -60,8 +68,8 @@ const SingleProduct = () => {
                         return(<React.Fragment>
                                 <input 
                                     type='button' 
-                                    className='clr f2'
-                                    onClick={()=>setPic({color, url})} 
+                                    className='clr btnArr f2'
+                                    onClick={(e)=>{setPic({color, url});selectedClass(e)}} 
                                     key={color} id={ color}
                                     value={color}
                                 />
@@ -72,7 +80,7 @@ const SingleProduct = () => {
                 <div className='gr3 sngl_sizes'>
                     {sizes.map((item) => {
                         return(
-                            <button className='size_btn f2' key={item} onClick={()=>setSize(item)}>
+                            <button className='size_btn btnArr f2' key={item} onClick={(e)=>{setSize(item);selectedClass(e)}}>
                                 {item}
                             </button>)
                     })}
@@ -83,13 +91,43 @@ const SingleProduct = () => {
             </div>
             <div className='grd_txt'>
             <div className='sngl_txt_container'>
-                <p className='product_title font_lib f5'>{title}</p>
+                <p className='sngl_product_title font_lib f5'>{title}</p>
                 <p className='product_desc'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent venenatis semper fringilla. Aliquam fringilla justo at nisi vulputate pharetra. Curabitur bibendum ultrices mi id accumsan. Nunc vestibulum commodo bibendum. Cras accumsan lectus sit amet metus ornare, ac bibendum elit dignissim.
                 </p>
                 <div className='amount_price f3'>
                     <p className='product_price'>${price}</p>
                     <input className='input_amount' type='number' placeholder='1' onChange={e => setAmount( parseInt(e.target.value))}/>
+                </div>
+                <div className='sngl_repeat_btns'>
+                <div>
+                <p>color: </p>
+                    <select 
+                    onChange= {e=>{setPic(img[e.currentTarget.value])}}>
+                    {img.map(({color, url},index)=>{
+                    return(<React.Fragment>
+                            <option
+                                 key={color} 
+                                 id={ color}
+                                value={index}
+                            >{color}</option>
+                            </React.Fragment>)
+                        })}
+                    </select>
+                </div>
+                <div>
+                <p>size: </p>
+                    <select onChange={(e)=>{setSize(e.currentTarget.value)}}>
+                    {sizes.map((item) => {
+                    return(
+                        <option 
+                            key={item}
+                            value={item}>
+                            {item}
+                        </option>)
+                    })}
+                    </select>
+                </div>
                 </div>
                 <div>
                 <input className='input_submit'  type='submit' id='buy_btn' onClick={()=>addToCart()}/>

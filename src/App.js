@@ -11,17 +11,20 @@ import SingleProdutc from './pages/SingleProduct'
 import CheckOut from './pages/CheckOut'
 import Success from './pages/Success'
 import Error from './pages/Error'
+import ScrollTop from './components/ScrollTop'
 
 const  App = () =>{
+    console.log(process.env.PUBLIC_URL)
     return(
         <div id='wrapper'>
         <Router>
+            <ScrollTop />
             <SideBar />
             <NavBar />
             <Cart />
             <div className='container'>
             <Switch>
-                <Route exact path = '/'>
+                <Route exact path = {process.env.PUBLIC_URL + '/'}>
                     <Home />
                 </Route>
                 <Route path='/products'>

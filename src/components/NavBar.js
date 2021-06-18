@@ -8,7 +8,7 @@ const NavBar = () => {
     const [scrolled, setScrolled] = useState(false)
 
     const changeColor = () => {
-        if(window.scrollY >= 65){
+        if(window.scrollY >= 25){
             setScrolled(true)
         }else{
             setScrolled(false)

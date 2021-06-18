@@ -427,7 +427,7 @@ Variables
   text-align: center;
   font-size: 14vw;
   line-height: 20vw;
-  color: rgba(12, 69, 92, 0.4);
+  color: rgba(12, 69, 92, 0.5);
   position: absolute;
   top:14%;
   left:0%;
@@ -710,7 +710,9 @@ Variables
   flex-direction: column;
   margin: 2rem 0;
 }
-.sngl_txt_container > .product_title{
+.sngl_txt_container > .sngl_product_title{
+  word-wrap: normal;
+  white-space: normal;
   color: var(--clr-primary-1);
   text-align: left !important;
 }
@@ -730,6 +732,22 @@ Variables
   flex-direction: row;
   margin: 1rem 0 2rem;
   color: var(--generic-blue);
+}
+.sngl_repeat_btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-bottom: 1.5rem;
+  color:var(--generic-blue);
+}
+.sngl_repeat_btns > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 1rem;
+}
+.sngl_repeat_btns > div > p{
+  margin-right: 0.5rem;
 }
 .input_amount{
   width: 35px;
@@ -756,6 +774,11 @@ Variables
   background-color: var(--generic-cream);
   border:1px solid var(--shade-brown-2);
   box-shadow: var(--lightShadow);
+}
+.selected{
+  background-color: var(--generic-cream);
+  border-radius: 3px;
+  padding: 0.1rem;
 }
 @media only screen and (min-width:768px) {
   .product_desc{

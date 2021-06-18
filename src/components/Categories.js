@@ -45,7 +45,7 @@ const Categories = () => {
             <div>
             <div className='cat_angle ang_left'
             onClick={()=>{
-            sideScroll(slider.current,'left',25,100,10);}}>
+                sideScroll(slider.current,'left',25,100,10);}}>
                 <FaAngleDoubleLeft/>
             </div>
             <div className='cat_slider hide_slider'>
@@ -60,11 +60,11 @@ const Categories = () => {
                         )
                 })}
             </div>
+            </div>
             <div className='cat_angle ang_right'
             onClick={()=>{
                 sideScroll(slider.current,'right',25,100,10);}}>
                     <FaAngleDoubleRight/>
-            </div>
             </div>
                 {showCat?
                 <button className='zabane'
